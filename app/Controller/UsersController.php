@@ -15,6 +15,25 @@ class UsersController extends AppController {
  */
 	public $components = array('Paginator');
 
+	public function beforeFilter() {
+    parent::beforeFilter();
+    // Se puede ir a ADD y a logout.
+    $this->Auth->allow('add', 'logout');
+}
+
+public function login() {
+    if ($this->request->is('post')) {
+        if ($this->Auth->login()) {
+            return $this->redirect($this->Auth->redirectUrl());
+        }
+        $this->Session->setFlash(__('El Password es incorrecto, intentelo de nuevo.'));
+    }
+}
+
+public function logout() {
+    return $this->redirect($this->Auth->logout());
+}
+
 /**
  * index method
  *

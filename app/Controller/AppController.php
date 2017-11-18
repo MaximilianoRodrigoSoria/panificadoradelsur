@@ -32,5 +32,30 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
 
+	 public $components = array(
+        'Session',
+        'Auth' => array(
+            'loginRedirect' => array(
+                'controller' => 'posts',
+                'action' => 'index'
+            ),
+            'logoutRedirect' => array(
+                'controller' => 'users',
+                'action' => 'login',
+                
+            ),
+            'authenticate' => array(
+                'Form' => array(
+                    'passwordHasher' => 'Blowfish'
+                )
+            )
+        )
+    );
+
+    public function beforeFilter() {
+        $this->Auth->allow('login', 'logout');
+        $this->set('current_user', $this->Auth->user());
+    }
+
 
 }

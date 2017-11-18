@@ -4,7 +4,7 @@
 
 <div id="header">
        
-			<nav class="navbar navbar-default navbar-fixed-top" class="img-responsive">
+			<nav class="navbar navbar-inverse navbar-fixed-top" class="img-responsive">
  			<div class="container-fluid">
     	<div class="navbar-header">
           <a class="navbar-brand" href="#">Panificados del Sur</a>
