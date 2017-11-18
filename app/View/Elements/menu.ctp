@@ -32,8 +32,10 @@
               <li><?php   echo $this->Html->link('Formulas',array('controller'=>'Formulas','action'=>'index'));?></li>
       				</ul>
       			<ul class="nav navbar-nav navbar-right">
-        			<li><a href="#" type="button" data-toggle="modal" data-target="#salir">Salir</a></li>
-        		</ul>
+              <li>
+                <?php echo $this->Html->link('Salir', array('controller' => 'users', 'action' => 'logout')); ?>
+              </li>
+            </ul>    
     		</div>
 			</div>
 		</nav>

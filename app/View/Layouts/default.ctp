@@ -45,15 +45,20 @@
 	<div id="content">
 
 		<?php echo $this->Session->flash(); ?>
+		
+		<?php if(isset($current_user)): ?>
+		<?php echo $this->element('menu'); ?>
+		<?php endif; ?>
+		
 
-      <?php   echo $this->element('menu');?>
 		<?php echo $this->fetch('content'); ?>
+		
 	</div>
   <?php  echo $this->element('footer');?>
 	<div id="footer">
 
 		
-<?php   echo $this->element('footer');?>
+
 
 </body>
 </html>

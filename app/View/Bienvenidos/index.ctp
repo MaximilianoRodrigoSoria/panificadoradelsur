@@ -1,12 +1,64 @@
+<?php
+/**
+ * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
+ * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ *
+ * Licensed under The MIT License
+ * For full copyright and license information, please see the LICENSE.txt
+ * Redistributions of files must retain the above copyright notice.
+ *
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @link          http://cakephp.org CakePHP(tm) Project
+ * @package       app.View.Layouts
+ * @since         CakePHP(tm) v 0.10.0.1076
+ * @license       http://www.opensource.org/licenses/mit-license.php MIT License
+ */
+?>
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
-	<meta charset="UTF-8" />
-	<title>Nueva vista</title>
+	
+	<title>
+	Panificados del Sur - Inicio
+	</title>
+	<?php
+		echo $this->Html->meta('icon');
+		//echo $this->Html->css(array('estilos','bootstrap-theme.min','bootstrap.min','footer', 'cake.generic'));
+		echo $this->Html->css(array('estilos','bootstrap','font-awesome.min','footer','mio'));
+		//echo $this->Html->css(array('cake.generic'));
+
+		//echo $this->Html->script(array('jquery-2.2.4','bootstrap','script'));
+
+		echo $this->Html->script(array('jquery-2.2.4','bootstrap'));
+
+
+		echo $this->fetch('meta');
+		echo $this->fetch('css');
+		echo $this->fetch('script');
+	?>
 </head>
 <body>
-	<h1>Hola, soy un proyecto generico de <b>Cake PHP</b></h1></h1>
+   
+		
+
+  <div id="container">  			
+	<div id="content">
+
+		<?php echo $this->Session->flash(); ?>
+		
+		<?php if(isset($current_user)): ?>
+		<?php echo $this->element('menu'); ?>
+		<?php endif; ?>
+		<?php debug($current_user); ?>
+		<?php debug($current_user[1]); ?>
+		<?php echo $this->fetch('content'); ?>
+		
+	</div>
+  <?php  echo $this->element('footer');?>
+	<div id="footer">
+
+		
+
+
 </body>
 </html>
-
-
