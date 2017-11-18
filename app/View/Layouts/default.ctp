@@ -49,8 +49,8 @@
 		<?php if(isset($current_user)): ?>
 		<?php echo $this->element('menu'); ?>
 		<?php endif; ?>
-		
-
+		<?php debug($current_user['Role']['tipo'])?>
+	
 		<?php echo $this->fetch('content'); ?>
 		
 	</div>
