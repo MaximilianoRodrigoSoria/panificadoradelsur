@@ -24,8 +24,8 @@
 	<?php
 		echo $this->Html->meta('icon');
 		//echo $this->Html->css(array('estilos','bootstrap-theme.min','bootstrap.min','footer', 'cake.generic'));
-		//echo $this->Html->css(array('estilos','bootstrap','font-awesome.min','footer','mio'));
-		echo $this->Html->css(array('cake.generic'));
+		echo $this->Html->css(array('estilos','bootstrap','font-awesome.min','footer','mio'));
+		//echo $this->Html->css(array('cake.generic'));
 
 		//echo $this->Html->script(array('jquery-2.2.4','bootstrap','script'));
 
@@ -46,10 +46,10 @@
 
 		<?php echo $this->Session->flash(); ?>
 
-      <?php   //echo $this->element('menu');?>
+      <?php   echo $this->element('menu');?>
 		<?php echo $this->fetch('content'); ?>
 	</div>
-  <?php  //echo $this->element('footer');?>
+  <?php  echo $this->element('footer');?>
 	<div id="footer">
 
 		
