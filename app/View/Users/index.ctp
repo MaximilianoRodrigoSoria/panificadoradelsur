@@ -4,16 +4,16 @@
 
 <div class="panel panel-primary">
   <div class="panel-heading">
-    <h3 class="panel-title">Usuarios - consulta </h3>
+    <h3 class="panel-title">Usuarios - Consulta </h3>
   </div>
   <div class="panel-body">
    
  
-<div class="table">
+<div class="table-responsive">
 		
 
 	
-	<table class="table">
+	<table class="table ">
 	<thead>
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
@@ -26,7 +26,7 @@
 			<th><?php echo $this->Paginator->sort('dni'); ?></th>
 			<th><?php echo $this->Paginator->sort('telefono'); ?></th>
 			<th><?php echo $this->Paginator->sort('email'); ?></th>
-			<th class="actions"><?php echo __('Actions'); ?></th>
+			<th class="actions"><?php echo __('Acciones'); ?></th>
 	</tr>
 	</thead>
 	<tbody>
@@ -46,11 +46,23 @@
 		<td><?php echo h($user['User']['dni']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['telefono']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['email']); ?>&nbsp;</td>
-		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $user['User']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $user['User']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $user['User']['id']), array(), __('Are you sure you want to delete # %s?', $user['User']['id'])); ?>
-		</td>
+
+
+
+		<td>
+			<!-- Single button -->
+<div class="btn-group">
+  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+     <span class="glyphicon glyphicon-edit"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><?php echo $this->Html->link(__('Ver'), array('action' => 'view', $user['User']['id'])); ?></li>
+    <li><?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $user['User']['id'])); ?></li>
+    <li><?php echo $this->Form->postLink(__('Borrar'), array('action' => 'delete', $user['User']['id']), array(), __('Estas seguro que queres borrar el usuario # %s?', $user['User']['id'])); ?></li>
+    
+  </ul>
+</div>
+
 	</tr>
 <?php endforeach; ?>
 	</tbody>

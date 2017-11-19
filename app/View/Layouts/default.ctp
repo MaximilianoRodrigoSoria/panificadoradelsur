@@ -47,7 +47,10 @@
 		<?php echo $this->Session->flash(); ?>
 		
 		<?php if(isset($current_user)) 
-			{echo $this->element('menu');}
+			{echo $this->element('menu');
+			echo $this->element('panel-info-usuario');
+
+		}
 			else
 			{echo $this->element('menulog');}
 		?>

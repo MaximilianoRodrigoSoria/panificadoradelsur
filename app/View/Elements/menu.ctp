@@ -19,7 +19,11 @@
      	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       			<ul class="nav navbar-nav">
         			<li><?php   echo $this->Html->link('Home',array('controller'=>'','action'=>'index'));?></li>
-        			<li><?php   echo $this->Html->link('Usuarios',array('controller'=>'users','action'=>'index'));?></li>
+        			
+              <?php  if(($current_user['Role']['tipo'])=='Administrador'): ?>
+              <li><?php   echo $this->Html->link('Usuarios',array('controller'=>'users','action'=>'index'));?></li>
+              <?php endif;?>
+
                 <li><?php   echo $this->Html->link('Clientes',array('controller'=>'Clientes','action'=>'index'));?></li>
         				<li class="dropdown">
           			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pedidos<span class="caret"></span></a>
