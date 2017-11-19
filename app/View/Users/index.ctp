@@ -1,9 +1,32 @@
 <div class="container">
-<?php echo $this->element('navtabs-usuario-consulta'); ?>
 
+
+<form action="/hms/accommodations" method="GET"> 
+  <div class="row">
+	<div class="col-md-8">
+		<?php echo $this->element('navtabs-usuario-consulta'); ?>
+
+	</div>	
+
+    <div class="col-xs-6 col-md-4">
+      <div class="input-group">
+   <input type="text" class="form-control" placeholder="Buscar" id="txtSearch"/>
+   <div class="input-group-btn">
+        <button class="btn btn-primary" type="submit">
+        <span class="glyphicon glyphicon-search"></span>
+        </button>
+   </div>
+   </div>
+    </div>
+  </div>
+</form>
 
 <div class="panel panel-primary">
   <div class="panel-heading">
+
+	
+
+
     <h3 class="panel-title">Usuarios - Consulta </h3>
   </div>
   <div class="panel-body">
@@ -65,23 +88,29 @@
 
 	</tr>
 <?php endforeach; ?>
+
 	</tbody>
+
 	</table>
  </div>
-</div>
-</div>
-	<p>
+
+
+
+ <p>
 		<br>
 	<?php
 	echo $this->Paginator->counter(array(
 	'format' => __('Pagina {:page} de {:pages}, total {:count}')
 	));
 	?>	</p>
+</div>
+</div>
+	
 	<div class="paging">
 	<?php
-		echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled btn btn-sm btn-primary'));
+		echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled btn  btn-primary'));
 		echo $this->Paginator->numbers(array('separator' => ''));
-		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled btn btn-sm btn-primary'));
+		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled btn btn-primary'));
 	?>
 	</div>
 </div>
