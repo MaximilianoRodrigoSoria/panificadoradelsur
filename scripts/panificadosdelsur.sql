@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-11-2017 a las 09:17:44
+-- Tiempo de generación: 19-11-2017 a las 11:34:25
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 5.6.30
 
@@ -218,7 +218,9 @@ INSERT INTO `roles` (`id`, `estado_id`, `tipo`) VALUES
 (1, 1, 'Administrador'),
 (3, 1, 'Gerente de Produccion'),
 (4, 1, 'Encargado de Produccion'),
-(5, 1, 'Empleado de Ventas');
+(5, 1, 'Empleado de Ventas'),
+(6, 1, 'Empleado de Produccion'),
+(7, 1, 'Super Administrador');
 
 -- --------------------------------------------------------
 
@@ -287,7 +289,9 @@ INSERT INTO `users` (`id`, `role_id`, `estado_id`, `username`, `password`, `nomb
 (3, 1, 1, 'elpotro', '$2a$10$Ov7SDg56oys6Uy6sl65qEeA8xrNMR7rwo85cjpHeEF8j17xRIgg/u', 'Maximiliano', 'Soria', '2242344', 'werwerwe', 'wqeqweqw@gmail.com'),
 (4, 3, 1, 'GerenteDeProduccion', '$2a$10$QVnLuj.6gv8Fhy/73rclo.xznqpop6IQH5cONWIgqdnKEicUS69dG', 'Marcos', 'Polo', '1111111111', '444444444', 'marcospolo@gmail.com'),
 (5, 4, 1, 'EncargadoDeProduccion', '$2a$10$KlAUTdrCoj68ryMMSaDoqeejkbSX/2fLi7m6qExw1hPS.sjR72VMW', 'Andrea', 'Villanova', '121121212', '21321312313', 'villanov@gmail.com'),
-(6, 5, 1, 'EmpleadoDeVentas', '$2a$10$8RkbGjGDmCPpuqT1jyi99O3j6beJaAZnCLl/rn8RPxOZ4YdF.Q1d6', 'Camilia', 'Temira', '231231', '213123123', 'eqweqwe@asasdasd.com');
+(6, 5, 1, 'EmpleadoDeVentas', '$2a$10$8RkbGjGDmCPpuqT1jyi99O3j6beJaAZnCLl/rn8RPxOZ4YdF.Q1d6', 'Camilia', 'Temira', '231231', '213123123', 'eqweqwe@asasdasd.com'),
+(7, 6, 1, 'EmpleadoDeProduccion', '$2a$10$Ppqrzu0AN/nrIUQ6TNpHceUWg9Y3C7P9cg.84zWYn6cr1W6pqizrS', 'Armando', 'Barreda', '12121212212', '1212', 'asadasd@gmail.com'),
+(8, 7, 1, 'SuperAdmin', '$2a$10$6BtgNGQlL8wSNPk5snPZxuGhw1RKnvFS64OK0zVjQUMCi1PFJ7gcO', 'Goku', 'SS3', '12312312', '213213', 'asdasd@sdasdas.com');
 
 --
 -- Índices para tablas volcadas
@@ -413,7 +417,7 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT de la tabla `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT de la tabla `subestado`
 --
@@ -428,7 +432,7 @@ ALTER TABLE `tipos`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
