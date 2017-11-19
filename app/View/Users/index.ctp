@@ -1,10 +1,19 @@
 <div class="container">
+<?php echo $this->element('navtabs-usuario-consulta'); ?>
 
-<div class="users index">
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Usuarios - consulta </h3>
+  </div>
+  <div class="panel-body">
+   
+ 
+<div class="table">
 		
 
-	<h2><?php echo __('Users'); ?></h2>
-	<table cellpadding="0" cellspacing="0">
+	
+	<table class="table">
 	<thead>
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
@@ -46,18 +55,21 @@
 <?php endforeach; ?>
 	</tbody>
 	</table>
+ </div>
+</div>
+</div>
 	<p>
 		<br>
 	<?php
 	echo $this->Paginator->counter(array(
-	'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
+	'format' => __('Pagina {:page} de {:pages}, total {:count}')
 	));
 	?>	</p>
 	<div class="paging">
 	<?php
-		echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
+		echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled btn btn-sm btn-primary'));
 		echo $this->Paginator->numbers(array('separator' => ''));
-		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
+		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled btn btn-sm btn-primary'));
 	?>
 	</div>
 </div>

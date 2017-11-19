@@ -46,10 +46,11 @@
 
 		<?php echo $this->Session->flash(); ?>
 		
-		<?php if(isset($current_user)): ?>
-		<?php echo $this->element('menu'); ?>
-		<?php endif; ?>
-		<?php debug($current_user['Role']['tipo'])?>
+		<?php if(isset($current_user)) 
+			{echo $this->element('menu');}
+			else
+			{echo $this->element('menulog');}
+		?>
 	
 		<?php echo $this->fetch('content'); ?>
 		

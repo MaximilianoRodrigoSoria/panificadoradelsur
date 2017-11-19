@@ -1,3 +1,7 @@
+<div class="container">
+	<?php echo $this->element('navtabs-usuario-alta'); ?>
+
+
 <div class="users form">
 <?php echo $this->Form->create('User'); ?>
 	<fieldset>
@@ -26,4 +30,5 @@
 		<li><?php echo $this->Html->link(__('List Estados'), array('controller' => 'estados', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Estado'), array('controller' => 'estados', 'action' => 'add')); ?> </li>
 	</ul>
+</div>
 </div>

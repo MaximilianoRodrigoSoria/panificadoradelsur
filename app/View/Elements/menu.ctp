@@ -19,13 +19,13 @@
      	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       			<ul class="nav navbar-nav">
         			<li><?php   echo $this->Html->link('Home',array('controller'=>'','action'=>'index'));?></li>
-        			<li><?php   echo $this->Html->link('Usuarios',array('controller'=>'Usuarios','action'=>'index'));?></li>
+        			<li><?php   echo $this->Html->link('Usuarios',array('controller'=>'users','action'=>'index'));?></li>
                 <li><?php   echo $this->Html->link('Clientes',array('controller'=>'Clientes','action'=>'index'));?></li>
         				<li class="dropdown">
           			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pedidos<span class="caret"></span></a>
           			<ul class="dropdown-menu">
-            			<li><a href="#">Pedidos de Cliente</a></li>
-            			<li><a href="#">Pedidos de Producci&oacute;n</a></li>
+            			<li><?php   echo $this->Html->link('Clientes',array('controller'=>'Cpedidos','action'=>'index'));?></li>
+            			<li><?php   echo $this->Html->link('Empleados',array('controller'=>'Epedidos','action'=>'index'));?></li>
           			</ul></li>
         			<li><?php   echo $this->Html->link('Productos',array('controller'=>'Productos','action'=>'index'));?></li>
         			<li><?php   echo $this->Html->link('Insumos',array('controller'=>'Insumos','action'=>'index'));?></li>
@@ -33,7 +33,9 @@
       				</ul>
       			<ul class="nav navbar-nav navbar-right">
               <li>
-                <?php echo $this->Html->link('Salir', array('controller' => 'users', 'action' => 'logout')); ?>
+                <?php echo $this->Html->link('Salir', array('controller' => 'users', 'action' => 'logout')); ?>              
+
+
               </li>
             </ul>    
     		</div>
