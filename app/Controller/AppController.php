@@ -48,9 +48,7 @@ class AppController extends Controller {
                 'Form' => array(
                     'passwordHasher' => 'Blowfish'
                 )
-            ),
-            'authError'=>false,
-            'authorize'=> array('Controller')
+            )
         )
     );
 
@@ -59,11 +57,5 @@ class AppController extends Controller {
         $this->set('current_user', $this->Auth->user());
     }
 
-    public function isAuthorized($user)
-        { if(isset($user['Role']) && $user['Role']['tipo']==='Super Administrador')
-            {return true;}
-           else
-            { return false;}
 
-    }
 }

@@ -18,7 +18,7 @@ class UsersController extends AppController {
 	public function beforeFilter() {
     parent::beforeFilter();
     // Se puede ir a ADD y a logout.
-    //$this->Auth->allow('add', 'logout');
+    $this->Auth->allow('add', 'logout');
 }
 
 public function login() {
@@ -126,24 +126,4 @@ public function logout() {
 		}
 		return $this->redirect(array('action' => 'index'));
 	}
-
-public function isAuthorized($user)
-        { if(isset($user['Role']) && $user['Role']['tipo']==='Empleado de Ventas')
-            {if(in_array($this->action, array('index','add','edit','view')))
-            	{return true;}
-            else
-            	{if($this->Auth->user('id'))
-            		{$this->Session->setFlash('No tiene acceso','default', array('class'=>'alert alert-danger'));
-            		$this->redirect($this->Auth->redirect());
-
-
-            		}
-
-        }
-
-        }
-        return parent::isAuthorized($user);
-           
-    }
-
 }
