@@ -1,31 +1,26 @@
-<div class="users form">
-<?php echo $this->Form->create('User'); ?>
-	<fieldset>
-		<legend><?php echo __('Edit User'); ?></legend>
-	<?php
-		echo $this->Form->input('id');
-		echo $this->Form->input('role_id');
-		echo $this->Form->input('estado_id');
-		echo $this->Form->input('username');
-		echo $this->Form->input('password');
-		echo $this->Form->input('nombre');
-		echo $this->Form->input('apellido');
-		echo $this->Form->input('dni');
-		echo $this->Form->input('telefono');
-		echo $this->Form->input('email');
-	?>
-	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-
-		<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('User.id')), array(), __('Are you sure you want to delete # %s?', $this->Form->value('User.id'))); ?></li>
-		<li><?php echo $this->Html->link(__('List Users'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Roles'), array('controller' => 'roles', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Role'), array('controller' => 'roles', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Estados'), array('controller' => 'estados', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Estado'), array('controller' => 'estados', 'action' => 'add')); ?> </li>
-	</ul>
+<div class="container">
+	<?php echo $this->element('navtabs-usuario-editar'); ?>
+	<?php echo $this->Form->create('User'); ?>
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<h3 class="panel-title"><?php echo ('Modificar Usuario'); ?></h3>
+  		</div>
+		<div class="panel-body">
+			<form class="form-horizontal">
+			<?php
+				echo $this->Form->input('id',array('class'=>'form-control'));
+				echo $this->Form->input('role_id',array('class'=>'form-control'));
+				echo $this->Form->input('estado_id',array('class'=>'form-control'));
+				echo $this->Form->input('username',array('class'=>'form-control'));
+				echo $this->Form->input('password',array('class'=>'form-control'));
+				echo $this->Form->input('nombre',array('class'=>'form-control'));
+				echo $this->Form->input('apellido',array('class'=>'form-control'));
+				echo $this->Form->input('dni',array('class'=>'form-control'));
+				echo $this->Form->input('telefono',array('class'=>'form-control'));
+				echo $this->Form->input('email',array('class'=>'form-control'));
+			?>
+			<br><div class="center-block"><?php echo $this->Form->end(__('Enviar')); ?></div>
+			</form>
+		</div>
+	</div>
 </div>

@@ -1,30 +1,22 @@
-<div class="cpedidos form">
-<?php echo $this->Form->create('Cpedido'); ?>
-	<fieldset>
-		<legend><?php echo __('Add Cpedido'); ?></legend>
-	<?php
-		echo $this->Form->input('cliente_id');
-		echo $this->Form->input('estado_id');
-		echo $this->Form->input('subestado_id');
-		echo $this->Form->input('producto_id');
-		echo $this->Form->input('cantidad');
-		echo $this->Form->input('fecha');
-	?>
-	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-
-		<li><?php echo $this->Html->link(__('List Cpedidos'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Clientes'), array('controller' => 'clientes', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Cliente'), array('controller' => 'clientes', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Estados'), array('controller' => 'estados', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Estado'), array('controller' => 'estados', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Subestados'), array('controller' => 'subestados', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Subestado'), array('controller' => 'subestados', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Productos'), array('controller' => 'productos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Producto'), array('controller' => 'productos', 'action' => 'add')); ?> </li>
-	</ul>
+<div class="container">
+	<?php echo $this->element('navtabs-cpedido-alta'); ?>
+	<?php echo $this->Form->create('Cpedido'); ?>
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<h3 class="panel-title"><?php echo ('Dar de Alta un Pedido de Cliente'); ?></h3>
+  		</div>
+	<div class="panel-body">
+		<form class="form-horizontal">
+			<?php
+				echo $this->Form->input('cliente_id',array('class'=>'form-control'));
+				echo $this->Form->input('estado_id',array('class'=>'form-control'));
+				echo $this->Form->input('subestado_id',array('class'=>'form-control'));
+				echo $this->Form->input('producto_id',array('class'=>'form-control'));
+				echo $this->Form->input('cantidad',array('class'=>'form-control'));
+				echo $this->Form->input('fecha',array('class'=>'form-control'));
+			?>
+			<br><div class="center-block"><?php echo $this->Form->end(('Enviar')); ?></div>
+		</form>
+	</div>
+	</div>
 </div>

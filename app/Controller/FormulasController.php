@@ -50,10 +50,10 @@ class FormulasController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Formula->create();
 			if ($this->Formula->save($this->request->data)) {
-				$this->Session->setFlash(__('The formula has been saved.'));
+				$this->Session->setFlash('La Formula ha sido creada correctamente', 'default',array('class'=>'container alert alert-success text-center'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The formula could not be saved. Please, try again.'));
+				$this->Session->setFlash('La Formula no pudo crearse, intentelo nuevamente', 'default',array('class'=>'container alert alert-danger text-center'));
 			}
 		}
 		$estados = $this->Formula->Estado->find('list');
@@ -74,10 +74,10 @@ class FormulasController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Formula->save($this->request->data)) {
-				$this->Session->setFlash(__('The formula has been saved.'));
+				$this->Session->setFlash('La Formula ha sido modificada correctamente', 'default',array('class'=>'container alert alert-success text-center'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The formula could not be saved. Please, try again.'));
+				$this->Session->setFlash('La Formula no pudo modificarse, intentelo nuevamente', 'default',array('class'=>'container alert alert-danger text-center'));
 			}
 		} else {
 			$options = array('conditions' => array('Formula.' . $this->Formula->primaryKey => $id));
@@ -102,9 +102,9 @@ class FormulasController extends AppController {
 		}
 		$this->request->allowMethod('post', 'delete');
 		if ($this->Formula->delete()) {
-			$this->Session->setFlash(__('The formula has been deleted.'));
+			$this->Session->setFlash('La Formula ha sido eliminada correctamente', 'default',array('class'=>'container alert alert-success text-center'));
 		} else {
-			$this->Session->setFlash(__('The formula could not be deleted. Please, try again.'));
+			$this->Session->setFlash('La Formula no pudo eliminarse, intentelo nuevamente', 'default',array('class'=>'container alert alert-danger text-center'));
 		}
 		return $this->redirect(array('action' => 'index'));
 	}

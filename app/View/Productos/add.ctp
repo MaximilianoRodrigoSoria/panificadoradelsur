@@ -1,28 +1,21 @@
-<div class="productos form">
-<?php echo $this->Form->create('Producto'); ?>
-	<fieldset>
-		<legend><?php echo __('Add Producto'); ?></legend>
-	<?php
-		echo $this->Form->input('estado_id');
-		echo $this->Form->input('formula_id');
-		echo $this->Form->input('nombre');
-		echo $this->Form->input('detalle');
-	?>
-	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
+<div class="container">
+	<?php echo $this->element('navtabs-producto-alta'); ?>
+	<?php echo $this->Form->create('Producto'); ?>
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<h3 class="panel-title"><?php echo ('Dar de Alta un Producto'); ?></h3>
+  		</div>
+		<div class="panel-body">
+			<form class="form-horizontal">
+				<?php
+					echo $this->Form->input('estado_id',array('class'=>'form-control'));
+					echo $this->Form->input('formula_id',array('class'=>'form-control'));
+					echo $this->Form->input('nombre',array('class'=>'form-control'));
+					echo $this->Form->input('detalle',array('class'=>'form-control'));
+				?>
 
-		<li><?php echo $this->Html->link(__('List Productos'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Estados'), array('controller' => 'estados', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Estado'), array('controller' => 'estados', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Formulas'), array('controller' => 'formulas', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Formula'), array('controller' => 'formulas', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Cpedidos'), array('controller' => 'cpedidos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Cpedido'), array('controller' => 'cpedidos', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Epedidos'), array('controller' => 'epedidos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Epedido'), array('controller' => 'epedidos', 'action' => 'add')); ?> </li>
-	</ul>
+				<br><div class="center-block"><?php echo $this->Form->end(('Enviar')); ?></div>
+			</form>
+		</div> 
+	</div>
 </div>
