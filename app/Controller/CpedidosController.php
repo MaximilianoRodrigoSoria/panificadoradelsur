@@ -49,10 +49,10 @@ class CpedidosController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Cpedido->create();
 			if ($this->Cpedido->save($this->request->data)) {
-				$this->Session->setFlash(__('The cpedido has been saved.'));
+				$this->Session->setFlash('El Pedido ha sido creado correctamente', 'default',array('class'=>'container alert alert-success text-center'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The cpedido could not be saved. Please, try again.'));
+				$this->Session->setFlash('El Pedido no pudo crearse, intentelo nuevamente', 'default',array('class'=>'container alert alert-danger text-center'));
 			}
 		}
 		$clientes = $this->Cpedido->Cliente->find('list');
@@ -75,10 +75,10 @@ class CpedidosController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Cpedido->save($this->request->data)) {
-				$this->Session->setFlash(__('The cpedido has been saved.'));
+				$this->Session->setFlash('El Pedido ha sido modificado correctamente', 'default',array('class'=>'container alert alert-success text-center'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The cpedido could not be saved. Please, try again.'));
+				$this->Session->setFlash('El Pedido no pudo modificarse, intentelo nuevamente', 'default',array('class'=>'container alert alert-danger text-center'));
 			}
 		} else {
 			$options = array('conditions' => array('Cpedido.' . $this->Cpedido->primaryKey => $id));
@@ -105,9 +105,9 @@ class CpedidosController extends AppController {
 		}
 		$this->request->allowMethod('post', 'delete');
 		if ($this->Cpedido->delete()) {
-			$this->Session->setFlash(__('The cpedido has been deleted.'));
+			$this->Session->setFlash('El Pedido ha sido eliminado correctamente', 'default',array('class'=>'container alert alert-success text-center'));
 		} else {
-			$this->Session->setFlash(__('The cpedido could not be deleted. Please, try again.'));
+			$this->Session->setFlash('El Pedido no pudo eliminarse, intentelo nuevamente', 'default',array('class'=>'container alert alert-danger text-center'));
 		}
 		return $this->redirect(array('action' => 'index'));
 	}

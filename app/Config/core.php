@@ -98,13 +98,13 @@
  * that plugin assets such as images, CSS and JavaScript files
  * will not work without URL rewriting!
  * To work around this issue you should either symlink or copy
- * the plugin assets into you app's webroot directory. This is
+ * the plugin assets into you app's webroot directory. This isset(var)
  * recommended even when you are using mod_rewrite. Handling static
  * assets through the Dispatcher is incredibly inefficient and
  * included primarily as a development convenience - and
  * thus not recommended for production applications.
  */
-	//Configure::write('App.baseUrl', env('SCRIPT_NAME'));
+	Configure::write('App.baseUrl', env('SCRIPT_NAME'));
 
 /**
  * To configure CakePHP to use a particular domain URL
