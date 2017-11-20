@@ -1,20 +1,26 @@
-<div class="container">
-	<?php echo $this->element('navtabs-formula-alta'); ?>
-	<?php echo $this->Form->create('Formula'); ?>
-	<div class="panel panel-primary">
-		<div class="panel-heading">
-			<h3 class="panel-title"><?php echo ('Dar de Alta una Formula'); ?></h3>
-  		</div>
-	<div class="panel-body">
-		<form class="form-horizontal">
-			<?php
-				echo $this->Form->input('estado_id',array('class'=>'form-control'));
-				echo $this->Form->input('nombre',array('class'=>'form-control'));
-				echo $this->Form->input('descripcion',array('class'=>'form-control'));
-				echo $this->Form->input('Insumo',array('class'=>'form-control'));
-			?>
-			<br><div class="center-block"><?php echo $this->Form->end(('Enviar')); ?></div>
-		</form>
-	</div>
-	</div>
+<div class="formulas form">
+<?php echo $this->Form->create('Formula'); ?>
+	<fieldset>
+		<legend><?php echo __('Add Formula'); ?></legend>
+	<?php
+		echo $this->Form->input('estado_id');
+		echo $this->Form->input('nombre');
+		echo $this->Form->input('descripcion');
+		echo $this->Form->input('Insumo');
+	?>
+	</fieldset>
+<?php echo $this->Form->end(__('Submit')); ?>
+</div>
+<div class="actions">
+	<h3><?php echo __('Actions'); ?></h3>
+	<ul>
+
+		<li><?php echo $this->Html->link(__('List Formulas'), array('action' => 'index')); ?></li>
+		<li><?php echo $this->Html->link(__('List Estados'), array('controller' => 'estados', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Estado'), array('controller' => 'estados', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Productos'), array('controller' => 'productos', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Producto'), array('controller' => 'productos', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Insumos'), array('controller' => 'insumos', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Insumo'), array('controller' => 'insumos', 'action' => 'add')); ?> </li>
+	</ul>
 </div>

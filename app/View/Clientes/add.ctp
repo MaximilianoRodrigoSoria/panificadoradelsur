@@ -1,22 +1,26 @@
-<div class="container">
-	<?php echo $this->element('navtabs-cliente-alta'); ?>
-	<?php echo $this->Form->create('Cliente'); ?>
-	<div class="panel panel-primary">
-		<div class="panel-heading">
-			<h3 class="panel-title"><?php echo ('Dar de Alta un Usuario'); ?></h3>
-  		</div>
-	<div class="panel-body">
-		<form class="form-horizontal">
-		<?php
-			echo $this->Form->input('estado_id',array('class'=>'form-control'));
-			echo $this->Form->input('nombre',array('class'=>'form-control'));
-			echo $this->Form->input('apellido',array('class'=>'form-control'));
-			echo $this->Form->input('dni',array('class'=>'form-control'));
-			echo $this->Form->input('telefono',array('class'=>'form-control'));
-			echo $this->Form->input('email',array('class'=>'form-control'));
-		?>
-		<br><div class="center-block"><?php echo $this->Form->end(('Enviar')); ?></div>
-		</form>
-	</div>
-	</div>
+<div class="clientes form">
+<?php echo $this->Form->create('Cliente'); ?>
+	<fieldset>
+		<legend><?php echo __('Add Cliente'); ?></legend>
+	<?php
+		echo $this->Form->input('estado_id');
+		echo $this->Form->input('nombre');
+		echo $this->Form->input('apellido');
+		echo $this->Form->input('dni');
+		echo $this->Form->input('telefono');
+		echo $this->Form->input('email');
+	?>
+	</fieldset>
+<?php echo $this->Form->end(__('Submit')); ?>
+</div>
+<div class="actions">
+	<h3><?php echo __('Actions'); ?></h3>
+	<ul>
+
+		<li><?php echo $this->Html->link(__('List Clientes'), array('action' => 'index')); ?></li>
+		<li><?php echo $this->Html->link(__('List Estados'), array('controller' => 'estados', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Estado'), array('controller' => 'estados', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Cpedidos'), array('controller' => 'cpedidos', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Cpedido'), array('controller' => 'cpedidos', 'action' => 'add')); ?> </li>
+	</ul>
 </div>

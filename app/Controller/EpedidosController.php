@@ -49,10 +49,10 @@ class EpedidosController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Epedido->create();
 			if ($this->Epedido->save($this->request->data)) {
-				$this->Session->setFlash('El Pedido ha sido creado correctamente', 'default',array('class'=>'container alert alert-success text-center'));
+				$this->Session->setFlash(__('The epedido has been saved.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash('El Pedido no pudo crearse, intentelo nuevamente', 'default',array('class'=>'container alert alert-danger text-center'));
+				$this->Session->setFlash(__('The epedido could not be saved. Please, try again.'));
 			}
 		}
 		$users = $this->Epedido->User->find('list');
@@ -76,10 +76,10 @@ class EpedidosController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Epedido->save($this->request->data)) {
-				$this->Session->setFlash('El Pedido ha sido modificado correctamente', 'default',array('class'=>'container alert alert-success text-center'));
+				$this->Session->setFlash(__('The epedido has been saved.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash('El Pedido no pudo modificarse, intentelo nuevamente', 'default',array('class'=>'container alert alert-danger text-center'));
+				$this->Session->setFlash(__('The epedido could not be saved. Please, try again.'));
 			}
 		} else {
 			$options = array('conditions' => array('Epedido.' . $this->Epedido->primaryKey => $id));
@@ -107,9 +107,9 @@ class EpedidosController extends AppController {
 		}
 		$this->request->allowMethod('post', 'delete');
 		if ($this->Epedido->delete()) {
-			$this->Session->setFlash('El Pedido ha sido eliminado correctamente', 'default',array('class'=>'container alert alert-success text-center'));
+			$this->Session->setFlash(__('The epedido has been deleted.'));
 		} else {
-			$this->Session->setFlash('El Pedido no pudo eliminarse, intentelo nuevamente', 'default',array('class'=>'container alert alert-danger text-center'));
+			$this->Session->setFlash(__('The epedido could not be deleted. Please, try again.'));
 		}
 		return $this->redirect(array('action' => 'index'));
 	}

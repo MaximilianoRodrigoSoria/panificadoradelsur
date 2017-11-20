@@ -91,5 +91,4 @@ class Insumo extends AppModel {
 		)
 	);
 
-
 }

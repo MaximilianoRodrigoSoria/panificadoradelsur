@@ -26,7 +26,7 @@ public function login() {
         if ($this->Auth->login()) {
             return $this->redirect($this->Auth->redirectUrl());
         }
-        $this->Session->setFlash('El Usuario y/o la Contraseña son incorrectos', 'default',array('class'=>'container alert alert-danger'));
+        $this->Session->setFlash(__('El Password es incorrecto, intentelo de nuevo.'));
     }
 }
 
@@ -68,10 +68,10 @@ public function logout() {
 		if ($this->request->is('post')) {
 			$this->User->create();
 			if ($this->User->save($this->request->data)) {
-				$this->Session->setFlash('El Usuario ha sido creado correctamente', 'default',array('class'=>'container alert alert-success text-center'));
+				$this->Session->setFlash(__('The user has been saved.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash('El Usuario no pudo crearse, intentelo nuevamente', 'default',array('class'=>'container alert alert-danger text-center'));
+				$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
 			}
 		}
 		$roles = $this->User->Role->find('list');
@@ -92,10 +92,10 @@ public function logout() {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->User->save($this->request->data)) {
-				$this->Session->setFlash('El Usuario ha sido modificado correctamente', 'default',array('class'=>'container alert alert-success text-center'));
+				$this->Session->setFlash(__('The user has been saved.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash('El Usuario no pudo modificarse, intentelo nuevamente', 'default',array('class'=>'container alert alert-danger text-center'));
+				$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
 			}
 		} else {
 			$options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
@@ -120,9 +120,9 @@ public function logout() {
 		}
 		$this->request->allowMethod('post', 'delete');
 		if ($this->User->delete()) {
-			$this->Session->setFlash('El Usuario ha sido eliminado correctamente', 'default',array('class'=>'container alert alert-success text-center'));
+			$this->Session->setFlash(__('The user has been deleted.'));
 		} else {
-			$this->Session->setFlash('El Usuario no pudo eliminarse, intentelo nuevamente', 'default',array('class'=>'container alert alert-danger text-center'));
+			$this->Session->setFlash(__('The user could not be deleted. Please, try again.'));
 		}
 		return $this->redirect(array('action' => 'index'));
 	}

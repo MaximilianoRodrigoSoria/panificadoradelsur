@@ -49,10 +49,10 @@ class InsumosController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Insumo->create();
 			if ($this->Insumo->save($this->request->data)) {
-				$this->Session->setFlash('El Insumo ha sido creado correctamente', 'default',array('class'=>'container alert alert-success text-center'));
+				$this->Session->setFlash(__('The insumo has been saved.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash('El Insumo no pudo crearse, intentelo nuevamente', 'default',array('class'=>'container alert alert-danger text-center'));
+				$this->Session->setFlash(__('The insumo could not be saved. Please, try again.'));
 			}
 		}
 		$estados = $this->Insumo->Estado->find('list');
@@ -73,10 +73,10 @@ class InsumosController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Insumo->save($this->request->data)) {
-				$this->Session->setFlash('El Insumo ha sido modificado correctamente', 'default',array('class'=>'container alert alert-success text-center'));
+				$this->Session->setFlash(__('The insumo has been saved.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash('El Insumo no pudo modificarse, intentelo nuevamente', 'default',array('class'=>'container alert alert-danger text-center'));
+				$this->Session->setFlash(__('The insumo could not be saved. Please, try again.'));
 			}
 		} else {
 			$options = array('conditions' => array('Insumo.' . $this->Insumo->primaryKey => $id));
@@ -101,9 +101,9 @@ class InsumosController extends AppController {
 		}
 		$this->request->allowMethod('post', 'delete');
 		if ($this->Insumo->delete()) {
-			$this->Session->setFlash('El Insumo ha sido eliminado correctamente', 'default',array('class'=>'container alert alert-success text-center'));
+			$this->Session->setFlash(__('The insumo has been deleted.'));
 		} else {
-			$this->Session->setFlash('El Insumo no pudo eliminarse, intentelo nuevamente', 'default',array('class'=>'container alert alert-danger text-center'));
+			$this->Session->setFlash(__('The insumo could not be deleted. Please, try again.'));
 		}
 		return $this->redirect(array('action' => 'index'));
 	}

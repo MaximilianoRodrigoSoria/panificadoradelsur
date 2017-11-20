@@ -49,10 +49,10 @@ class ProductosController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Producto->create();
 			if ($this->Producto->save($this->request->data)) {
-				$this->Session->setFlash('El Producto ha sido creado correctamente', 'default',array('class'=>'container alert alert-success text-center'));
+				$this->Session->setFlash(__('The producto has been saved.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash('El Producto no pudo crearse, intentelo nuevamente', 'default',array('class'=>'container alert alert-danger text-center'));
+				$this->Session->setFlash(__('The producto could not be saved. Please, try again.'));
 			}
 		}
 		$estados = $this->Producto->Estado->find('list');
@@ -73,10 +73,10 @@ class ProductosController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Producto->save($this->request->data)) {
-				$this->Session->setFlash('El Producto ha sido modificado correctamente', 'default',array('class'=>'container alert alert-success text-center'));
+				$this->Session->setFlash(__('The producto has been saved.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash('El Producto no pudo modificarse, intentelo nuevamente', 'default',array('class'=>'container alert alert-danger text-center'));
+				$this->Session->setFlash(__('The producto could not be saved. Please, try again.'));
 			}
 		} else {
 			$options = array('conditions' => array('Producto.' . $this->Producto->primaryKey => $id));
@@ -101,9 +101,9 @@ class ProductosController extends AppController {
 		}
 		$this->request->allowMethod('post', 'delete');
 		if ($this->Producto->delete()) {
-			$this->Session->setFlash('El Producto ha sido eliminado correctamente', 'default',array('class'=>'container alert alert-success text-center'));
+			$this->Session->setFlash(__('The producto has been deleted.'));
 		} else {
-			$this->Session->setFlash('El Producto no pudo eliminarse, intentelo nuevamente', 'default',array('class'=>'container alert alert-danger text-center'));
+			$this->Session->setFlash(__('The producto could not be deleted. Please, try again.'));
 		}
 		return $this->redirect(array('action' => 'index'));
 	}

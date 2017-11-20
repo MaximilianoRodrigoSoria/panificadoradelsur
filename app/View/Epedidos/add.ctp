@@ -1,23 +1,33 @@
-<div class="container">
-	<?php echo $this->element('navtabs-epedido-alta'); ?>
-	<?php echo $this->Form->create('Epedido'); ?>
-	<div class="panel panel-primary">
-		<div class="panel-heading">
-			<h3 class="panel-title"><?php echo ('Dar de Alta un Pedido de Produccion'); ?></h3>
-  		</div>
-	<div class="panel-body">
-		<form class="form-horizontal">
-		<?php
-			echo $this->Form->input('user_id',array('class'=>'form-control'));
-			echo $this->Form->input('estado_id',array('class'=>'form-control'));
-			echo $this->Form->input('subestado_id',array('class'=>'form-control'));
-			echo $this->Form->input('producto_id',array('class'=>'form-control'));
-			echo $this->Form->input('tipo_id',array('class'=>'form-control'));
-			echo $this->Form->input('cantidad',array('class'=>'form-control'));
-			echo $this->Form->input('fecha',array('class'=>'form-control'));
-		?>
-		<br><div class="center-block"><?php echo $this->Form->end(('Enviar')); ?></div>
-		</form>
-	</div>
-	</div>
+<div class="epedidos form">
+<?php echo $this->Form->create('Epedido'); ?>
+	<fieldset>
+		<legend><?php echo __('Add Epedido'); ?></legend>
+	<?php
+		echo $this->Form->input('user_id');
+		echo $this->Form->input('estado_id');
+		echo $this->Form->input('subestado_id');
+		echo $this->Form->input('producto_id');
+		echo $this->Form->input('tipo_id');
+		echo $this->Form->input('cantidad');
+		echo $this->Form->input('fecha');
+	?>
+	</fieldset>
+<?php echo $this->Form->end(__('Submit')); ?>
+</div>
+<div class="actions">
+	<h3><?php echo __('Actions'); ?></h3>
+	<ul>
+
+		<li><?php echo $this->Html->link(__('List Epedidos'), array('action' => 'index')); ?></li>
+		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Estados'), array('controller' => 'estados', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Estado'), array('controller' => 'estados', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Subestados'), array('controller' => 'subestados', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Subestado'), array('controller' => 'subestados', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Productos'), array('controller' => 'productos', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Producto'), array('controller' => 'productos', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Tipos'), array('controller' => 'tipos', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Tipo'), array('controller' => 'tipos', 'action' => 'add')); ?> </li>
+	</ul>
 </div>

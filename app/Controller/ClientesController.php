@@ -49,10 +49,10 @@ class ClientesController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Cliente->create();
 			if ($this->Cliente->save($this->request->data)) {
-				$this->Session->setFlash('El Cliente ha sido creado correctamente', 'default',array('class'=>'container alert alert-success text-center'));
+				$this->Session->setFlash(__('The cliente has been saved.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash('El Cliente no pudo crearse, intentelo nuevamente', 'default',array('class'=>'container alert alert-danger text-center'));
+				$this->Session->setFlash(__('The cliente could not be saved. Please, try again.'));
 			}
 		}
 		$estados = $this->Cliente->Estado->find('list');
@@ -72,10 +72,10 @@ class ClientesController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Cliente->save($this->request->data)) {
-				$this->Session->setFlash('El Cliente ha sido modificado correctamente', 'default',array('class'=>'container alert alert-success text-center'));
+				$this->Session->setFlash(__('The cliente has been saved.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash('El Cliente no pudo modificarse, intentelo nuevamente', 'default',array('class'=>'container alert alert-danger text-center'));
+				$this->Session->setFlash(__('The cliente could not be saved. Please, try again.'));
 			}
 		} else {
 			$options = array('conditions' => array('Cliente.' . $this->Cliente->primaryKey => $id));
@@ -99,9 +99,9 @@ class ClientesController extends AppController {
 		}
 		$this->request->allowMethod('post', 'delete');
 		if ($this->Cliente->delete()) {
-			$this->Session->setFlash('El Cliente ha sido eliminado correctamente', 'default',array('class'=>'container alert alert-success text-center'));
+			$this->Session->setFlash(__('The cliente has been deleted.'));
 		} else {
-			$this->Session->setFlash('El Cliente no pudo eliminarse, intentelo nuevamente', 'default',array('class'=>'container alert alert-danger text-center'));
+			$this->Session->setFlash(__('The cliente could not be deleted. Please, try again.'));
 		}
 		return $this->redirect(array('action' => 'index'));
 	}
