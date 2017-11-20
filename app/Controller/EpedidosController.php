@@ -13,7 +13,13 @@ class EpedidosController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator');
+	public $components = array('RequestHandler','Session');
+	public $helpers = array('Html','Form','Time','Js');
+
+	public $paginate = array(
+		'limit'=>5,
+		'order'=>array(
+			'Epedido.id'=>'asc'));
 
 /**
  * index method
@@ -22,7 +28,10 @@ class EpedidosController extends AppController {
  */
 	public function index() {
 		$this->Epedido->recursive = 0;
-		$this->set('epedidos', $this->Paginator->paginate());
+		$this->paginate['Epedido']['limit']=5;
+		$this->paginate['Epedido']['order']=array('Epedido.id'=>'asc');
+		//$this->paginate['Insumo']['conditions'] =>('Insumo.nombre' => '')
+		$this->set('epedidos', $this->paginate());
 	}
 
 /**

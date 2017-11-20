@@ -13,7 +13,14 @@ class CpedidosController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator');
+	public $components = array('RequestHandler','Session');
+	public $helpers = array('Html','Form','Time','Js');
+
+	public $paginate = array(
+		'limit'=>5,
+		'order'=>array(
+			'Cpedido.id'=>'asc'));
+
 
 /**
  * index method
@@ -22,7 +29,10 @@ class CpedidosController extends AppController {
  */
 	public function index() {
 		$this->Cpedido->recursive = 0;
-		$this->set('cpedidos', $this->Paginator->paginate());
+		$this->paginate['Cpedido']['limit']=5;
+		$this->paginate['Cpedido']['order']=array('Cpedido.id'=>'asc');
+		//$this->paginate['Cliente']['conditions'] =>('Cliente.nombre' => '')
+		$this->set('cpedidos', $this->paginate());
 	}
 
 /**

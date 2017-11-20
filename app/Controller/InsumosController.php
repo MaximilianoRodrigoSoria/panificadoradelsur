@@ -13,7 +13,14 @@ class InsumosController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator');
+	public $components = array('RequestHandler','Session');
+	public $helpers = array('Html','Form','Time','Js');
+
+	public $paginate = array(
+		'limit'=>5,
+		'order'=>array(
+			'Insumo.id'=>'asc'));
+
 
 /**
  * index method
@@ -22,7 +29,10 @@ class InsumosController extends AppController {
  */
 	public function index() {
 		$this->Insumo->recursive = 0;
-		$this->set('insumos', $this->Paginator->paginate());
+		$this->paginate['Insumo']['limit']=5;
+		$this->paginate['Insumo']['order']=array('Insumo.id'=>'asc');
+		//$this->paginate['Insumo']['conditions'] =>('Insumo.nombre' => '')
+		$this->set('insumos', $this->paginate());
 	}
 
 /**

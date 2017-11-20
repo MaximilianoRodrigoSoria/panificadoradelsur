@@ -13,8 +13,13 @@ class ClientesController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator');
+	public $components = array('RequestHandler','Session');
+	public $helpers = array('Html','Form','Time','Js');
 
+	public $paginate = array(
+		'limit'=>5,
+		'order'=>array(
+			'Cliente.id'=>'asc'));
 /**
  * index method
  *
@@ -22,7 +27,10 @@ class ClientesController extends AppController {
  */
 	public function index() {
 		$this->Cliente->recursive = 0;
-		$this->set('clientes', $this->Paginator->paginate());
+		$this->paginate['Cliente']['limit']=5;
+		$this->paginate['Cliente']['order']=array('Cliente.id'=>'asc');
+		//$this->paginate['Cliente']['conditions'] =>('Cliente.nombre' => '')
+		$this->set('clientes', $this->paginate());
 	}
 
 /**

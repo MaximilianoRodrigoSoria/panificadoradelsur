@@ -13,7 +13,14 @@ class ProductosController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator');
+	public $components = array('RequestHandler','Session');
+	public $helpers = array('Html','Form','Time','Js');
+
+	public $paginate = array(
+		'limit'=>5,
+		'order'=>array(
+			'Producto.id'=>'asc'));
+
 
 /**
  * index method
@@ -22,7 +29,10 @@ class ProductosController extends AppController {
  */
 	public function index() {
 		$this->Producto->recursive = 0;
-		$this->set('productos', $this->Paginator->paginate());
+		$this->paginate['Producto']['limit']=5;
+		$this->paginate['Producto']['order']=array('Producto.id'=>'asc');
+		//$this->paginate['Insumo']['conditions'] =>('Insumo.nombre' => '')
+		$this->set('productos', $this->paginate());
 	}
 
 /**

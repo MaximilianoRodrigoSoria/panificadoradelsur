@@ -13,7 +13,13 @@ class UsersController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator');
+	public $components = array('RequestHandler','Session');
+	public $helpers = array('Html','Form','Time','Js');
+
+	public $paginate = array(
+		'limit'=>5,
+		'order'=>array(
+			'User.id'=>'asc'));
 
 	public function beforeFilter() {
     parent::beforeFilter();
@@ -41,7 +47,10 @@ public function logout() {
  */
 	public function index() {
 		$this->User->recursive = 0;
-		$this->set('users', $this->Paginator->paginate());
+		$this->paginate['User']['limit']=5;
+		$this->paginate['User']['order']=array('User.id'=>'asc');
+		//$this->paginate['Insumo']['conditions'] =>('Insumo.nombre' => '')
+		$this->set('users', $this->paginate());
 	}
 
 /**

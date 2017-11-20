@@ -14,7 +14,13 @@ class FormulasController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator', 'Session');
+	public $components = array('RequestHandler','Session');
+	public $helpers = array('Html','Form','Time','Js');
+
+	public $paginate = array(
+		'limit'=>5,
+		'order'=>array(
+			'Formula.id'=>'asc'));
 
 /**
  * index method
@@ -23,7 +29,10 @@ class FormulasController extends AppController {
  */
 	public function index() {
 		$this->Formula->recursive = 0;
-		$this->set('formulas', $this->Paginator->paginate());
+		$this->paginate['Formula']['limit']=5;
+		$this->paginate['Formula']['order']=array('Formula.id'=>'asc');
+		//$this->paginate['Insumo']['conditions'] =>('Insumo.nombre' => '')
+		$this->set('formulas', $this->paginate());
 	}
 
 /**

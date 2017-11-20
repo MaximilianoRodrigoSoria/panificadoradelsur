@@ -1,4 +1,13 @@
-<<div class="container">
+<?php
+
+	$this->Paginator->options(array(
+		'update' => '#contenedor-formulas',));
+
+?>
+
+<div id="contenedor-formulas">
+
+<div class="container">
 	<form action="/hms/accommodations" method="GET"> 
 		<div class="row">
 			<div class="col-md-8 col-xs-6">
@@ -62,11 +71,10 @@
 	<p class="text-center"><br><?php echo $this->Paginator->counter(array('format' => __('Pagina {:page} de {:pages}, total {:count}')));?>	</p>
 		</div>
 	</div>
-	<div class="paging center-block">
-		<?php
-			echo $this->Paginator->prev('< ' . __('Anterior'), array(), null, array('class' => 'prev disabled btn btn-primary'));
-			echo $this->Paginator->numbers(array('separator' => ''));
-			echo $this->Paginator->next(__('Siguiente') . ' >', array(), null, array('class' => 'next disabled btn btn-primary'));
-		?>
-	</div>
+	<ul class="pagination center-block">
+		<li><?php echo $this->Paginator->prev('< ' . __(''), array(), null, array('class' => 'prev disabled btn btn-primary')); ?></li>
+		<li><?php echo $this->Paginator->numbers(array('separator' => '', 'tag'=>'li','currentTag' => 'a', 'currentClass' => 'active')); ?></li>
+		<li><?php echo $this->Paginator->next(__('') . ' >', array(), null, array('class' => 'next disabled btn btn-primary'));	?></li>
+	</ul>
+</div>
 </div>
