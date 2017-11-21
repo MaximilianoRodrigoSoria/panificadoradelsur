@@ -20,11 +20,11 @@
       			<ul class="nav navbar-nav">
         			<li><?php   echo $this->Html->link('Home',array('controller'=>'','action'=>'index'));?></li>
         			
-              <?php  if(($current_user['Role']['tipo'])=='Super Administrador' or ($current_user['Role']['tipo'])=='Administrador'or ($current_user['Role']['tipo'])=='Empleado de Ventas'): ?>
+              <?php  if(($current_user['Role']['tipo'])=='Super Administrador' or ($current_user['Role']['tipo'])=='Administrador'): ?>
               <li><?php   echo $this->Html->link('Usuarios',array('controller'=>'users','action'=>'index'));?></li>
               <?php endif;?>
 
-                <?php  if(($current_user['Role']['tipo'])=='Super Administrador'): ?>
+                <?php  if(($current_user['Role']['tipo'])=='Super Administrador' or ($current_user['Role']['tipo'])=='Empleado de Ventas'): ?>
                 <li><?php   echo $this->Html->link('Clientes',array('controller'=>'Clientes','action'=>'index'));?></li>
         				<?php  endif; ?>
                 
@@ -46,6 +46,7 @@
                <?php  if(($current_user['Role']['tipo'])=='Super Administrador' or ($current_user['Role']['tipo'])=='Encargado de Produccion'): ?>              
         			<li><?php   echo $this->Html->link('Productos',array('controller'=>'Productos','action'=>'index'));?></li>
         			 <?php  endif; ?> 
+
 
                <?php  if(($current_user['Role']['tipo'])=='Super Administrador' or ($current_user['Role']['tipo'])=='Encargado de Produccion'): ?>
               <li><?php   echo $this->Html->link('Insumos',array('controller'=>'Insumos','action'=>'index'));?></li>

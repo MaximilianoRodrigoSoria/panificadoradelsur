@@ -117,4 +117,24 @@ class ProductosController extends AppController {
 		}
 		return $this->redirect(array('action' => 'index'));
 	}
+
+
+	public function isAuthorized($user)
+        { if(isset($user['Role']) && $user['Role']['tipo']==='Encargado de Produccion')
+            {if(in_array($this->action, array('index','edit','view')))
+            	{return true;}
+            else
+            	{if($this->Auth->user('id'))
+            		{$this->Session->setFlash('No tiene acceso','default', array('class'=>'alert alert-danger'));
+            		$this->redirect($this->Auth->redirect());
+
+
+            		}
+
+        }
+
+        }
+        return parent::isAuthorized($user);
+           
+    }
 }

@@ -137,8 +137,8 @@ public function logout() {
 	}
 
 public function isAuthorized($user)
-        { if(isset($user['Role']) && $user['Role']['tipo']==='Empleado de Ventas')
-            {if(in_array($this->action, array('index','add','edit','view')))
+        { if(isset($user['Role']) && $user['Role']['tipo']==='Administrador')
+            {if(in_array($this->action, array('index','add','edit','view','delete')))
             	{return true;}
             else
             	{if($this->Auth->user('id'))
