@@ -119,9 +119,18 @@ class InsumosController extends AppController {
 	}
 
 
+	public function minimo() {
+		$this->Insumo->recursive = 0;
+		$this->paginate['Insumo']['limit']=5;
+		$this->paginate['Insumo']['order']=array('Insumo.id'=>'asc');
+		$this->paginate['Insumo']['conditions'] = array('Insumo.stock <' => '50');
+		$this->set('insumos', $this->paginate());
+	}
+
+
 	public function isAuthorized($user)
         { if(isset($user['Role']) && $user['Role']['tipo']==='Encargado de Produccion')
-            {if(in_array($this->action, array('index','add','edit','view', 'delete')))
+            {if(in_array($this->action, array('index','add','edit','view', 'delete','minimo')))
             	{return true;}
             else
             	{if($this->Auth->user('id'))
