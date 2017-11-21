@@ -23,13 +23,8 @@
 	</title>
 	<?php
 		echo $this->Html->meta('icon');
-		//echo $this->Html->css(array('estilos','bootstrap-theme.min','bootstrap.min','footer', 'cake.generic'));
-		echo $this->Html->css(array('bootstrap','font-awesome.min','estilos','footer','mio'));
-		//echo $this->Html->css(array('cake.generic'));
-
-		//echo $this->Html->script(array('jquery-2.2.4','bootstrap','script'));
-
-		echo $this->Html->script(array('jquery-2.2.4','bootstrap'));
+		echo $this->Html->css(array('bootstrap','font-awesome.min','estilos','jquery-ui.min',"styles","footers"));
+		echo $this->Html->script(array('jquery-2.2.4','bootstrap','jquery-ui.min'));
 
 
 		echo $this->fetch('meta');
@@ -38,10 +33,7 @@
 	?>
 </head>
 <body>
-   
-		
-
-  <div id="container">  			
+   <div id="container">  			
 	<div id="content">
 
 		<?php echo $this->Session->flash(); ?>
@@ -58,11 +50,8 @@
 		<?php echo $this->fetch('content'); ?>
 		
 	</div>
-  <?php  echo $this->element('footer');?>
 	<div id="footer">
-
-		
-
-
+	<?php  echo $this->element('footer');?>
+	</div>
 </body>
 </html>

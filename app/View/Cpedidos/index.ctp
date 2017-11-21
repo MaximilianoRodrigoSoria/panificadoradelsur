@@ -9,9 +9,11 @@
 <div class="container">
 	<form action="/hms/accommodations" method="GET"> 
 		<div class="row">
+		<?php  if(($current_user['Role']['tipo'])=='Super Administrador' or ($current_user['Role']['tipo'])=='Empleado de Ventas'): ?> 
 			<div class="col-md-8 col-xs-6">
 				<?php echo $this->element('navtabs-cpedido-consulta'); ?>
 			</div>	
+		<?php endif; ?>
 		<div class="col-xs-6 col-md-4">
 			<div class="input-group">
 				<input type="text" class="form-control" placeholder="Buscar" id="txtSearch"/>
@@ -37,11 +39,13 @@
 				<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('cliente_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('estado_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('subestado_id'); ?></th>
+			<th><?php echo $this->Paginator->sort('estado_pedido'); ?></th>
 			<th><?php echo $this->Paginator->sort('producto_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('cantidad'); ?></th>
 			<th><?php echo $this->Paginator->sort('fecha'); ?></th>
+			<?php  if(($current_user['Role']['tipo'])=='Super Administrador' or ($current_user['Role']['tipo'])=='Empleado de Ventas'): ?> 
 			<th class="actions"><?php echo __('Acciones'); ?></th>
+		<?php endif;?>
 			</tr>
 			</thead>
 			<tbody>
@@ -62,6 +66,7 @@
 				</td>
 				<td><?php echo h($cpedido['Cpedido']['cantidad']); ?>&nbsp;</td>
 				<td><?php echo h($cpedido['Cpedido']['fecha']); ?>&nbsp;</td>
+				<?php  if(($current_user['Role']['tipo'])=='Super Administrador' or ($current_user['Role']['tipo'])=='Empleado de Ventas'): ?> 
 				<td class="actions">
 					<div class="btn-group">
 					  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -74,6 +79,7 @@
 					    
 					  </ul>
 				</td>
+			<?php endif;?>
 			</tr>
 		<?php endforeach; ?>
 			</tbody>

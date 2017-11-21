@@ -30,7 +30,7 @@ class EpedidosController extends AppController {
 		$this->Epedido->recursive = 0;
 		$this->paginate['Epedido']['limit']=5;
 		$this->paginate['Epedido']['order']=array('Epedido.id'=>'asc');
-		//$this->paginate['Insumo']['conditions'] =>('Insumo.nombre' => '')
+		$this->paginate['Epedido']['conditions']=array('Epedido.subestado_id' => '1');
 		$this->set('epedidos', $this->paginate());
 	}
 
@@ -122,4 +122,24 @@ class EpedidosController extends AppController {
 		}
 		return $this->redirect(array('action' => 'index'));
 	}
+
+	public function isAuthorized($user)
+        { if(isset($user['Role']) && $user['Role']['tipo']==='Empleado de Produccion')
+            {if(in_array($this->action, array('index','add','edit','view', 'delete')))
+            	{return true;}
+            else
+            	{if($this->Auth->user('id'))
+            		{$this->Session->setFlash('No tiene acceso','default', array('class'=>'alert alert-danger'));
+            		$this->redirect($this->Auth->redirect());
+
+
+            		
+            		}
+
+        }
+
+        }
+        return parent::isAuthorized($user);
+           
+    }
 }

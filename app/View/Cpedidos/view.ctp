@@ -14,7 +14,7 @@
 					<p><?php echo $this->Html->link($cpedido['Estado']['nombre'], array('controller' => 'estados', 'action' => 'view', $cpedido['Estado']['id'])); ?>&nbsp;</p>
 				</li>
 				<li class="list-group-item">
-					<h4><?php echo __('Subestado'); ?></h4>
+					<h4><?php echo __('Estado de Pedido'); ?></h4>
 					<p><?php echo $this->Html->link($cpedido['Subestado']['nombre'], array('controller' => 'subestados', 'action' => 'view', $cpedido['Subestado']['id'])); ?>&nbsp;</p>
 				</li>
 				<li class="list-group-item">

@@ -8,24 +8,21 @@
 <div id="contenedor-insumos">
 
 <div class="container">
-	<form action="/hms/accommodations" method="GET"> 
 		<div class="row">
 			<div class="col-md-8 col-xs-12">
 				<?php echo $this->element('navtabs-insumo-consulta'); ?>
 			</div>	
-		<div class="col-xs-12 col-md-4">
-			<div class="input-group">
-				<input type="text" class="form-control" placeholder="Buscar" id="txtSearch"/>
-				<div class="input-group-btn">
-					<button class="btn btn-primary" type="submit">
-					<span class="glyphicon glyphicon-search"></span>
-					</button>
+		<div class="col-xs-10 col-md-4">
+				<?php echo $this->Form->create('Insumo', array('type'=>'GET', 'class'=>'form-inline', 'url'=>array('controller'=>'insumos','action'=>'search'))); ?>
+	
+					<div class="form-group">	
+					<?php echo $this->Form->input('search',array('label'=>false, 'div'=>false, 'id'=>'search','class'=>'form-control','autocomplete'=>'off','placeholder'=>'Buscar Insumo...')); ?>
+					</div>
+					<?php echo $this->Form->button('',array('div'=>false, 'class'=>'btn btn-primary glyphicon glyphicon-search')); ?>
+					<?php echo $this->Form->end(); ?>
 				</div>
 			</div>
 			<br>
-		</div>
-		</div>
-	</form>
 
 	<div class="panel panel-primary">
 		<div class="panel-heading">

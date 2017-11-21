@@ -128,6 +128,22 @@ class CpedidosController extends AppController {
         { if(isset($user['Role']) && $user['Role']['tipo']==='Empleado de Ventas')
             {if(in_array($this->action, array('index','add','edit','view')))
             	{return true;}
+
+             else
+            	{if($this->Auth->user('id'))
+            		{$this->Session->setFlash('No tiene acceso','default', array('class'=>'alert alert-danger'));
+            		$this->redirect($this->Auth->redirect());
+
+
+            		}
+            	}
+            }
+
+        if(isset($user['Role']) && $user['Role']['tipo']==='Gerente de Produccion')
+            {if(in_array($this->action, array('index')))
+            	{return true;}
+
+
             else
             	{if($this->Auth->user('id'))
             		{$this->Session->setFlash('No tiene acceso','default', array('class'=>'alert alert-danger'));
@@ -135,10 +151,10 @@ class CpedidosController extends AppController {
 
 
             		}
+            	}
 
-        }
-
-        }
+            }
+           
         return parent::isAuthorized($user);
            
     }

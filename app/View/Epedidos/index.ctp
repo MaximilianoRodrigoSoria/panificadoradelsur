@@ -38,7 +38,7 @@
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('user_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('estado_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('subestado_id'); ?></th>
+			<th><?php echo $this->Paginator->sort('estado_pedido'); ?></th>
 			<th><?php echo $this->Paginator->sort('producto_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('tipo_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('cantidad'); ?></th>

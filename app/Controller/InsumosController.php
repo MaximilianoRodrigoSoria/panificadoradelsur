@@ -132,6 +132,7 @@ class InsumosController extends AppController {
         { if(isset($user['Role']) && $user['Role']['tipo']==='Encargado de Produccion')
             {if(in_array($this->action, array('index','add','edit','view', 'delete','minimo')))
             	{return true;}
+
             else
             	{if($this->Auth->user('id'))
             		{$this->Session->setFlash('No tiene acceso','default', array('class'=>'alert alert-danger'));
@@ -140,9 +141,27 @@ class InsumosController extends AppController {
 
             		}
 
-        }
+          		}
 
-        }
+         }
+
+          if(isset($user['Role']) && $user['Role']['tipo']==='Gerente de Produccion')
+            {if(in_array($this->action, array('minimo')))
+            	{return true;}
+
+            else
+            	{if($this->Auth->user('id'))
+            		{$this->Session->setFlash('No tiene acceso','default', array('class'=>'alert alert-danger'));
+            		$this->redirect($this->Auth->redirect());
+
+
+            		}
+
+          		}
+
+          }
+            
+       
         return parent::isAuthorized($user);
            
     }

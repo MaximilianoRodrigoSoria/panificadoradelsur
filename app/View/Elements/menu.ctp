@@ -28,12 +28,12 @@
                 <li><?php   echo $this->Html->link('Clientes',array('controller'=>'Clientes','action'=>'index'));?></li>
         				<?php  endif; ?>
                 
-                <?php  if(($current_user['Role']['tipo'])=='Super Administrador' or ($current_user['Role']['tipo'])=='Empleado de Produccion' or ($current_user['Role']['tipo'])=='Empleado de Ventas'): ?>
+                <?php  if(($current_user['Role']['tipo'])=='Super Administrador' or ($current_user['Role']['tipo'])=='Empleado de Produccion' or ($current_user['Role']['tipo'])=='Empleado de Ventas' or ($current_user['Role']['tipo'])=='Gerente de Produccion'): ?>
                 <li class="dropdown">
           			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pedidos<span class="caret"></span></a>
           			<ul class="dropdown-menu">
             			
-                   <?php  if(($current_user['Role']['tipo'])=='Super Administrador' or ($current_user['Role']['tipo'])=='Empleado de Ventas'): ?> 
+                   <?php  if(($current_user['Role']['tipo'])=='Super Administrador' or ($current_user['Role']['tipo'])=='Empleado de Ventas' or ($current_user['Role']['tipo'])=='Gerente de Produccion'): ?> 
                   <li><?php   echo $this->Html->link('Clientes',array('controller'=>'Cpedidos','action'=>'index'));?></li>
             		    <?php  endif; ?> 
 
@@ -50,6 +50,11 @@
 
                <?php  if(($current_user['Role']['tipo'])=='Super Administrador' or ($current_user['Role']['tipo'])=='Encargado de Produccion'): ?>
               <li><?php   echo $this->Html->link('Insumos',array('controller'=>'Insumos','action'=>'index'));?></li>
+               <?php  endif; ?>
+
+                
+               <?php  if(($current_user['Role']['tipo'])=='Gerente de Produccion'): ?>
+              <li><?php   echo $this->Html->link('Insumos',array('controller'=>'Insumos','action'=>'minimo'));?></li>
                <?php  endif; ?>
               
                <?php  if(($current_user['Role']['tipo'])=='Super Administrador'or ($current_user['Role']['tipo'])=='Encargado de Produccion'): ?>
