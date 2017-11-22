@@ -94,8 +94,9 @@ class FormulasController extends AppController {
 			$this->request->data = $this->Formula->find('first', $options);
 		}
 		$estados = $this->Formula->Estado->find('list');
-		$formulas = $this->Formula->Formula->find('list');
-		$this->set(compact('estados', 'formulas'));
+		$productos = $this->Formula->Producto->find('list');
+		$insumos = $this->Formula->Insumo->find('list');
+		$this->set(compact('estados', 'productos','insumos'));
 	}
 
 /**

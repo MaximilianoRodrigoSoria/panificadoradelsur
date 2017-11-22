@@ -184,7 +184,7 @@ class ProductosController extends AppController {
 
 	public function isAuthorized($user)
         { if(isset($user['Role']) && $user['Role']['tipo']==='Encargado de Produccion')
-            {if(in_array($this->action, array('index','edit','view')))
+            {if(in_array($this->action, array('index','add','edit','view','delete','search','searchJson')))
             	{return true;}
             else
             	{if($this->Auth->user('id'))

@@ -57,7 +57,7 @@
 				<?php echo $this->Html->link($producto['Estado']['nombre'], array('controller' => 'estados', 'action' => 'view', $producto['Estado']['id'])); ?>
 			</td>
 			<td>
-				<?php echo $this->Html->link($producto['Formula']['estado_id'], array('controller' => 'formulas', 'action' => 'view', $producto['Formula']['id'])); ?>
+				<?php echo $this->Html->link($producto['Formula']['id'], array('controller' => 'formulas', 'action' => 'view', $producto['Formula']['id'])); ?>
 			</td>
 			<td><?php echo h($producto['Producto']['nombre']); ?>&nbsp;</td>
 			<td><?php echo h($producto['Producto']['detalle']); ?>&nbsp;</td>

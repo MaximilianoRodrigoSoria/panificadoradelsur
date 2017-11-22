@@ -45,7 +45,6 @@
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('estado_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('nombre'); ?></th>
-			<th><?php echo $this->Paginator->sort('descripcion'); ?></th>
 			<th class="actions"><?php echo __('Acciones'); ?></th>
 		</tr>
 		</thead>
@@ -57,7 +56,6 @@
 				<?php echo $this->Html->link($formula['Estado']['nombre'], array('controller' => 'estados', 'action' => 'view', $formula['Estado']['id'])); ?>
 			</td>
 			<td><?php echo h($formula['Formula']['nombre']); ?>&nbsp;</td>
-			<td><?php echo h($formula['Formula']['descripcion']); ?>&nbsp;</td>
 			<td class="actions">
 				<div class="btn-group">
 			  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -66,7 +64,7 @@
 			  <ul class="dropdown-menu dropdown-menu-right">
 			    <li><?php echo $this->Html->link(__('Ver'), array('action' => 'view', $formula['Formula']['id'])); ?></li>
 			    <li><?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $formula['Formula']['id'])); ?></li>
-			    <li><?php echo $this->Form->postLink(__('Borrar'), array('action' => 'delete', $formula['Formula']['id']), array(), __('Estas seguro que queres borrar el usuario # %s?', $formula['Formula']['id'])); ?></li>
+			    <li><?php echo $this->Form->postLink(__('Borrar'), array('action' => 'delete', $formula['Formula']['id']), array(), __('Estas seguro que queres borrar la formula # %s?', $formula['Formula']['id'])); ?></li>
 			    
 			  </ul>
 			</td>

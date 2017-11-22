@@ -9,12 +9,11 @@
 			<form class="form-horizontal">
 			<?php
 				echo $this->Form->input('id',array('class'=>'form-control'));
-				echo $this->Form->input('cliente_id',array('class'=>'form-control'));
-				echo $this->Form->input('estado_id',array('class'=>'form-control'));
-
-				echo $this->Form->input('producto_id',array('class'=>'form-control'));
-				echo $this->Form->input('cantidad',array('class'=>'form-control'));
-				echo $this->Form->input('fecha',array('class'=>'form-control'));
+				echo $this->Form->input('cliente_id',array('class'=>'form-control')).'<br />';
+				echo $this->Form->input('estado_id',array('class'=>'form-control hidden','label'=>false));
+				echo $this->Form->input('producto_id',array('class'=>'form-control')).'<br />';
+				echo $this->Form->input('cantidad',array('class'=>'form-control')).'<br />';
+				echo $this->Form->input('fecha',array('class'=>'form-control')).'<br />';
 			?>
 			<br><div class="center-block"><?php echo $this->Form->end(__('Enviar')); ?></div>
 			</form>

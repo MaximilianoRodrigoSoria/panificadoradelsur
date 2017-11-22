@@ -30,7 +30,7 @@
 
 	<div class="panel panel-primary">
 		<div class="panel-heading">
-			<h3 class="panel-title">Insumos</h3>
+			<h3 class="panel-title">Insumos con Stock Actual por debajo del Minimo</h3>
 		</div>
 		<div class="panel-body">
 		<div class="table-responsive">
@@ -41,7 +41,9 @@
 					<th><?php echo $this->Paginator->sort('estado_id'); ?></th>
 					<th><?php echo $this->Paginator->sort('nombre'); ?></th>
 					<th><?php echo $this->Paginator->sort('stock'); ?></th>
+					<?php  if(($current_user['Role']['tipo'])=='Super Administrador' or ($current_user['Role']['tipo'])=='Encargado de Produccion'): ?>
 					<th class="actions"><?php echo __('Acciones'); ?></th>
+				<?php endif; ?>
 			</tr>
 			</thead>
 			<tbody>
@@ -53,6 +55,8 @@
 				</td>
 				<td><?php echo h($insumo['Insumo']['nombre']); ?>&nbsp;</td>
 				<td><?php echo h($insumo['Insumo']['stock']); ?>&nbsp;</td>
+				<?php  if(($current_user['Role']['tipo'])=='Super Administrador' or ($current_user['Role']['tipo'])=='Encargado de Produccion'): ?>
+
 				<td class="actions">
 					<div class="btn-group">
 					  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -65,6 +69,7 @@
 					    
 					  </ul>
 				</td>
+			<?php endif; ?>
 			</tr>
 		<?php endforeach; ?>
 			</tbody>

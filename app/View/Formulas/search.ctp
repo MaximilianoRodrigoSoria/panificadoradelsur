@@ -41,7 +41,7 @@
 	<?php else: ?>
 		</div>
 	</div>
-		<div class="alert alert-danger text-center"><h3>No se ha encontrado la Formula que busca</h3></div>
-
+		<div class="alert alert-danger text-center">No se ha encontrado la Formula que busca</div>
+	<div class="center-block"><?php echo $this->Html->link(__('Volver'), array('action' => 'index'), array('type'=>'button','class'=>'btn btn-primary')); ?></div>
 <?php endif ?>
 </div>

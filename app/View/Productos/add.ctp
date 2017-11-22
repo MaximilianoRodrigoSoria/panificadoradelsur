@@ -8,10 +8,10 @@
 		<div class="panel-body">
 			<form class="form-horizontal">
 				<?php
-					echo $this->Form->input('estado_id',array('class'=>'form-control'));
-					echo $this->Form->input('formula_id',array('class'=>'form-control'));
-					echo $this->Form->input('nombre',array('class'=>'form-control'));
-					echo $this->Form->input('detalle',array('class'=>'form-control'));
+					echo $this->Form->input('estado_id',array('class'=>'form-control hidden', 'label'=>false,'value'=>1));
+					echo $this->Form->input('formula_id',array('class'=>'form-control')).'<br />';
+					echo $this->Form->input('nombre',array('class'=>'form-control')).'<br />';
+					echo $this->Form->input('detalle',array('class'=>'form-control')).'<br />';
 				?>
 
 				<br><div class="center-block"><?php echo $this->Form->end(('Enviar')); ?></div>

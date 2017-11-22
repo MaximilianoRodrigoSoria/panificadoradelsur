@@ -127,7 +127,7 @@ class ClientesController extends AppController {
 				$conditions[]=array('Cliente.nombre LIKE' => '%' . $term . '%');
 			}
 
-			$clientes = $this->Cliente->find('all',array('recursive' => -1, 'fields' => array('Cliente.id','Cliente.nombre'), 'conditions' => $conditions, 'limit' => 20));
+			$clientes = $this->Cliente->find('all',array('recursive' => -1, 'fields' => array('Cliente.id','Cliente.nombre','Cliente.apellido'), 'conditions' => $conditions, 'limit' => 20));
 
 		}
 
@@ -181,7 +181,7 @@ class ClientesController extends AppController {
 
 	public function isAuthorized($user)
         { if(isset($user['Role']) && $user['Role']['tipo']==='Empleado de Ventas')
-            {if(in_array($this->action, array('index','add','edit','view')))
+            {if(in_array($this->action, array('index','add','edit','view','search','searchJson')))
             	{return true;}
             else
             	{if($this->Auth->user('id'))

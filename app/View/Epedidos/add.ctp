@@ -8,12 +8,12 @@
 	<div class="panel-body">
 		<form class="form-horizontal">
 		<?php
-			echo $this->Form->input('user_id',array('class'=>'form-control'));
-			echo $this->Form->input('estado_id',array('class'=>'form-control'));
-			echo $this->Form->input('subestado_id',array('class'=>'form-control','label'=>'Estado de Pedido'));
-			echo $this->Form->input('producto_id',array('class'=>'form-control'));
-			echo $this->Form->input('tipo_id',array('class'=>'form-control'));
-			echo $this->Form->input('cantidad',array('class'=>'form-control'));
+			echo $this->Form->input('user_id',array('class'=>'form-control')).'<br />';
+			echo $this->Form->input('estado_id',array('class'=>'form-control hidden', 'label'=>false,'value'=>1));
+			echo $this->Form->input('subestado_id',array('class'=>'form-control hidden', 'label'=>false,'value'=>1));
+			echo $this->Form->input('producto_id',array('class'=>'form-control')).'<br />';
+			echo $this->Form->input('tipo_id',array('class'=>'form-control')).'<br />';
+			echo $this->Form->input('cantidad',array('class'=>'form-control')).'<br />';
 			echo $this->Form->input('fecha',array('class'=>'form-control'));
 		?>
 		<br><div class="center-block"><?php echo $this->Form->end(('Enviar')); ?></div>

@@ -31,36 +31,40 @@
 				</li>
 			</ul>
 		</div>
+		<div class="panel-footer">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h3 class="panel-title"><?php echo __('Pedidos Relacionados'); ?></h3>	
+				</div>
+				<div class="panel-body">
+						<?php if (!empty($cliente['Cpedido'])): ?>
+						<div class="table-responsive">
+							<table class="table table-bordered">
+							<tr>
+								<th><?php echo __('Id'); ?></th>
+								<th><?php echo __('Cliente Id'); ?></th>
+								<th><?php echo __('Subestado Id'); ?></th>
+								<th><?php echo __('Producto Id'); ?></th>
+								<th><?php echo __('Cantidad'); ?></th>
+								<th><?php echo __('Fecha'); ?></th>
+							</tr>
+						<?php foreach ($cliente['Cpedido'] as $cpedido): ?>
+							<tr>
+								<td><?php echo $cpedido['id']; ?></td>
+								<td><?php echo $cpedido['cliente_id']; ?></td>
+								<td><?php echo $cpedido['subestado_id']; ?></td>
+								<td><?php echo $cpedido['producto_id']; ?></td>
+								<td><?php echo $cpedido['cantidad']; ?></td>
+								<td><?php echo $cpedido['fecha']; ?></td>
+							</tr>
+						<?php endforeach; ?>
+							</table>
+						<?php endif; ?>
+						</div>
+				</div>
+			</div>
+		</div>
 	</div>
-	
-	<h3><?php echo __('Pedidos Relacionados'); ?></h3>
-		<?php if (!empty($cliente['Cpedido'])): ?>
-	<div class="table-responsive">
-		<table class="table table-bordered">
-		<tr>
-			<th><?php echo __('Id'); ?></th>
-			<th><?php echo __('Cliente Id'); ?></th>
-			<th><?php echo __('Estado Id'); ?></th>
-			<th><?php echo __('Subestado Id'); ?></th>
-			<th><?php echo __('Producto Id'); ?></th>
-			<th><?php echo __('Cantidad'); ?></th>
-			<th><?php echo __('Fecha'); ?></th>
-		</tr>
-	<?php foreach ($cliente['Cpedido'] as $cpedido): ?>
-		<tr>
-			<td><?php echo $cpedido['id']; ?></td>
-			<td><?php echo $cpedido['cliente_id']; ?></td>
-			<td><?php echo $cpedido['estado_id']; ?></td>
-			<td><?php echo $cpedido['subestado_id']; ?></td>
-			<td><?php echo $cpedido['producto_id']; ?></td>
-			<td><?php echo $cpedido['cantidad']; ?></td>
-			<td><?php echo $cpedido['fecha']; ?></td>
-		</tr>
-	<?php endforeach; ?>
-		</table>
-	<?php endif; ?>
-	</div>
-
 	<div class="center-block"><?php echo $this->Html->link(__('Atras'), array('action' => 'index'), array('type'=>'button','class'=>'btn btn-primary')); ?></div>
 
 </div>
