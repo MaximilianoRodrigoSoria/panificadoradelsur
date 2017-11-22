@@ -66,8 +66,9 @@ class FormulasController extends AppController {
 			}
 		}
 		$estados = $this->Formula->Estado->find('list');
-		$formulas = $this->Formula->Formula->find('list');
-		$this->set(compact('estados', 'formulas'));
+		$productos = $this->Formula->Producto->find('list');
+		$insumos = $this->Formula->Insumo->find('list');
+		$this->set(compact('estados', 'productos','insumos'));
 	}
 
 /**
@@ -183,7 +184,7 @@ class FormulasController extends AppController {
 
 	public function isAuthorized($user)
         { if(isset($user['Role']) && $user['Role']['tipo']==='Encargado de Produccion')
-            {if(in_array($this->action, array('index','edit','view')))
+            {if(in_array($this->action, array('index','add','edit','view','delete','search')))
             	{return true;}
             else
             	{if($this->Auth->user('id'))
