@@ -1,5 +1,11 @@
 <?php
 
+	echo $this->Html->script(array('searchCliente'));
+	echo $this->fetch('script');
+
+ ?>
+<?php
+
 	$this->Paginator->options(array(
 		'update' => '#contenedor-clientes',));
 
@@ -8,24 +14,22 @@
 <div id="contenedor-clientes">
 
 <div class="container">
-	<form action="/hms/accommodations" method="GET"> 
 		<div class="row">
-			<div class="col-md-8 col-xs-6">
+			<div class="col-md-7 col-xs-12">
 				<?php echo $this->element('navtabs-cliente-consulta'); ?>
 			</div>	
-		<div class="col-xs-6 col-md-4">
-			<div class="input-group">
-				<input type="text" class="form-control" placeholder="Buscar" id="txtSearch"/>
-				<div class="input-group-btn">
-					<button class="btn btn-primary" type="submit">
-					<span class="glyphicon glyphicon-search"></span>
-					</button>
-				</div>
+			<?php echo $this->Form->create('Cliente', array('type'=>'GET', 'url'=>array('controller'=>'clientes','action'=>'search'))); ?>
+			<div class="col-xs-10 col-md-4">
+					<div class="form-group">	
+					<?php echo $this->Form->input('search',array('label'=>false, 'div'=>false, 'id'=>'searchCliente','class'=>'form-control','autocomplete'=>'off','placeholder'=>'Buscar Cliente...')); ?>
+					</div>
 			</div>
+			<div class="col-md-1 col-xs-2">
+					<?php echo $this->Form->button('',array('div'=>false, 'class'=>'pull-left btn btn-primary glyphicon glyphicon-search')); ?>
+					
+			</div>
+			<?php echo $this->Form->end(); ?>
 		</div>
-		</div>
-	</form>
-
 	<div class="panel panel-primary">
 		<div class="panel-heading">
 			<h3 class="panel-title">Clientes</h3>

@@ -8,12 +8,12 @@
 <div id="contenedor-insumos">
 
 <div class="container">
-		<div class="row">
 			<?php  if(($current_user['Role']['tipo'])=='Super Administrador' or ($current_user['Role']['tipo'])=='Encargado de Produccion'): ?>
+		<div class="row">
              <div class="col-md-8 col-xs-12">
 				<?php echo $this->element('navtabs-insumo-minimo'); ?>
 			</div>	
-               <?php  endif; ?>
+              
 			
 		<div class="col-xs-10 col-md-4">
 				<?php echo $this->Form->create('Insumo', array('type'=>'GET', 'class'=>'form-inline', 'url'=>array('controller'=>'insumos','action'=>'search'))); ?>
@@ -26,6 +26,7 @@
 				</div>
 			</div>
 			<br>
+		 <?php  endif; ?>
 
 	<div class="panel panel-primary">
 		<div class="panel-heading">

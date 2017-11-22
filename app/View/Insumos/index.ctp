@@ -1,5 +1,11 @@
 <?php
 
+	echo $this->Html->script(array('searchInsumo'));
+	echo $this->fetch('script');
+
+ ?>
+<?php
+
 	$this->Paginator->options(array(
 		'update' => '#contenedor-insumos',));
 
@@ -9,18 +15,20 @@
 
 <div class="container">
 		<div class="row">
-			<div class="col-md-8 col-xs-12">
+			<div class="col-md-7 col-xs-12">
 				<?php echo $this->element('navtabs-insumo-consulta'); ?>
 			</div>	
-		<div class="col-xs-10 col-md-4">
-				<?php echo $this->Form->create('Insumo', array('type'=>'GET', 'class'=>'form-inline', 'url'=>array('controller'=>'insumos','action'=>'search'))); ?>
-	
+			<?php echo $this->Form->create('Insumo', array('type'=>'GET', 'url'=>array('controller'=>'insumos','action'=>'search'))); ?>
+			<div class="col-xs-10 col-md-4">
 					<div class="form-group">	
-					<?php echo $this->Form->input('search',array('label'=>false, 'div'=>false, 'id'=>'search','class'=>'form-control','autocomplete'=>'off','placeholder'=>'Buscar Insumo...')); ?>
+					<?php echo $this->Form->input('search',array('label'=>false, 'div'=>false, 'id'=>'searchInsumo','class'=>'form-control','autocomplete'=>'off','placeholder'=>'Buscar Insumo...')); ?>
 					</div>
-					<?php echo $this->Form->button('',array('div'=>false, 'class'=>'btn btn-primary glyphicon glyphicon-search')); ?>
-					<?php echo $this->Form->end(); ?>
-				</div>
+			</div>
+			<div class="col-md-1 col-xs-2">
+					<?php echo $this->Form->button('',array('div'=>false, 'class'=>'pull-left btn btn-primary glyphicon glyphicon-search')); ?>
+					
+			</div>
+			<?php echo $this->Form->end(); ?>
 			</div>
 			<br>
 

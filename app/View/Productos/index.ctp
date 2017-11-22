@@ -1,5 +1,11 @@
 <?php
 
+	echo $this->Html->script(array('searchProducto'));
+	echo $this->fetch('script');
+
+ ?>
+<?php
+
 	$this->Paginator->options(array(
 		'update' => '#contenedor-productos',));
 
@@ -8,23 +14,23 @@
 <div id="contenedor-productos">
 
 <div class="container">
-	<form action="/hms/accommodations" method="GET"> 
-		<div class="row">
-			<div class="col-md-8 col-xs-6">
+	<div class="row">
+			<div class="col-md-7 col-xs-12">
 				<?php echo $this->element('navtabs-producto-consulta'); ?>
 			</div>	
-		<div class="col-xs-6 col-md-4">
-			<div class="input-group">
-				<input type="text" class="form-control" placeholder="Buscar" id="txtSearch"/>
-				<div class="input-group-btn">
-					<button class="btn btn-primary" type="submit">
-					<span class="glyphicon glyphicon-search"></span>
-					</button>
-				</div>
+			<?php echo $this->Form->create('Producto', array('type'=>'GET', 'url'=>array('controller'=>'productos','action'=>'search'))); ?>
+			<div class="col-xs-10 col-md-4">
+					<div class="form-group">	
+					<?php echo $this->Form->input('search',array('label'=>false, 'div'=>false, 'id'=>'searchProducto','class'=>'form-control','autocomplete'=>'off','placeholder'=>'Buscar Producto...')); ?>
+					</div>
 			</div>
-		</div>
-		</div>
-	</form>
+			<div class="col-md-1 col-xs-2">
+					<?php echo $this->Form->button('',array('div'=>false, 'class'=>'pull-left btn btn-primary glyphicon glyphicon-search')); ?>
+					
+			</div>
+			<?php echo $this->Form->end(); ?>
+			</div>
+			<br>
 
 	<div class="panel panel-primary">
 		<div class="panel-heading">

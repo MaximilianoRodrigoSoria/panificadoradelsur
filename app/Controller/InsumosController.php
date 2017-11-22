@@ -127,10 +127,73 @@ class InsumosController extends AppController {
 		$this->set('insumos', $this->paginate());
 	}
 
+	public function searchJson(){
+
+		$term = null;
+		if(!empty($this->request->query['term'])){
+
+			$term = $this->request->query['term'];
+			$terms = explode(' ',trim($term));
+			$terms = array_diff($terms, array(''));
+			foreach ($terms as $term){
+				
+				$conditions[]=array('Insumo.nombre LIKE' => '%' . $term . '%');
+			}
+
+			$insumos = $this->Insumo->find('all',array('recursive' => -1, 'fields' => array('Insumo.id','Insumo.nombre'), 'conditions' => $conditions, 'limit' => 20));
+
+		}
+
+		echo json_encode($insumos);
+		$this->autoRender = false;
+	}
+
+	public function search(){
+
+		$search=null;
+		if(!empty($this->request->query['search'])){
+
+			$search=$this->request->query['search'];
+			$search=preg_replace('/[^a-zA-ZñÑáéíóúÁÉÍÓÚ0-9 ]/', '', $search);
+			$terms = explode(' ',trim($search));
+			$terms = array_diff($terms, array(''));
+
+			foreach ($terms as $term) {
+				
+				$terms1[]=preg_replace('/[^a-zA-ZñÑáéíóúÁÉÍÓÚ0-9 ]/', '', $term);
+				$conditions[]=array("Insumo.nombre LIKE" => '%'. $term . '%');
+			}
+
+			$insumos= $this->Insumo->find('all', array('recursive' => -1, 'conditions' => $conditions, 'limit' => 200));
+			if(count($insumos) == 1){
+
+				return $this->redirect(array('controller' => 'insumos', 'action' => 'view' ,$insumos[0]['Insumo']['id']));
+			}
+
+			$terms1=array_diff($terms1, array(''));
+			$this->set(compact('insumos','terms1'));
+
+		}
+
+		$this->set(compact('search'));
+
+		if($this->request->is('ajax')){
+
+			$this->layout = false;
+			$this->set('ajax', 1);
+		}
+
+		else{
+
+			$this->set('ajax',0);
+		}
+
+	}
+
 
 	public function isAuthorized($user)
         { if(isset($user['Role']) && $user['Role']['tipo']==='Encargado de Produccion')
-            {if(in_array($this->action, array('index','add','edit','view', 'delete','minimo')))
+            {if(in_array($this->action, array('index','add','edit','view', 'delete','minimo','searchJson','search')))
             	{return true;}
 
             else

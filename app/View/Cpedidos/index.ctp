@@ -10,20 +10,10 @@
 	<form action="/hms/accommodations" method="GET"> 
 		<div class="row">
 		<?php  if(($current_user['Role']['tipo'])=='Super Administrador' or ($current_user['Role']['tipo'])=='Empleado de Ventas'): ?> 
-			<div class="col-md-8 col-xs-6">
+			<div class="col-md-12 col-xs-12">
 				<?php echo $this->element('navtabs-cpedido-consulta'); ?>
 			</div>	
 		<?php endif; ?>
-		<div class="col-xs-6 col-md-4">
-			<div class="input-group">
-				<input type="text" class="form-control" placeholder="Buscar" id="txtSearch"/>
-				<div class="input-group-btn">
-					<button class="btn btn-primary" type="submit">
-					<span class="glyphicon glyphicon-search"></span>
-					</button>
-				</div>
-			</div>
-		</div>
 		</div>
 	</form>
 

@@ -114,6 +114,70 @@ class ClientesController extends AppController {
 		return $this->redirect(array('action' => 'index'));
 	}
 
+	public function searchJson(){
+
+		$term = null;
+		if(!empty($this->request->query['term'])){
+
+			$term = $this->request->query['term'];
+			$terms = explode(' ',trim($term));
+			$terms = array_diff($terms, array(''));
+			foreach ($terms as $term){
+				
+				$conditions[]=array('Cliente.nombre LIKE' => '%' . $term . '%');
+			}
+
+			$clientes = $this->Cliente->find('all',array('recursive' => -1, 'fields' => array('Cliente.id','Cliente.nombre'), 'conditions' => $conditions, 'limit' => 20));
+
+		}
+
+		echo json_encode($clientes);
+		$this->autoRender = false;
+	}
+
+	public function search(){
+
+		$search=null;
+		if(!empty($this->request->query['search'])){
+
+			$search=$this->request->query['search'];
+			$search=preg_replace('/[^a-zA-ZñÑáéíóúÁÉÍÓÚ0-9 ]/', '', $search);
+			$terms = explode(' ',trim($search));
+			$terms = array_diff($terms, array(''));
+
+			foreach ($terms as $term) {
+				
+				$terms1[]=preg_replace('/[^a-zA-ZñÑáéíóúÁÉÍÓÚ0-9 ]/', '', $term);
+				$conditions[]=array("Cliente.nombre LIKE" => '%'. $term . '%');
+			}
+
+			$clientes= $this->Cliente->find('all', array('recursive' => -1, 'conditions' => $conditions, 'limit' => 200));
+			if(count($clientes) == 1){
+
+				return $this->redirect(array('controller' => 'clientes', 'action' => 'view' ,$clientes[0]['Cliente']['id']));
+			}
+
+			$terms1=array_diff($terms1, array(''));
+			$this->set(compact('clientes','terms1'));
+
+		}
+
+		$this->set(compact('search'));
+
+		if($this->request->is('ajax')){
+
+			$this->layout = false;
+			$this->set('ajax', 1);
+		}
+
+		else{
+
+			$this->set('ajax',0);
+		}
+
+	}
+
+
 
 	public function isAuthorized($user)
         { if(isset($user['Role']) && $user['Role']['tipo']==='Empleado de Ventas')
