@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse navbar-fixed-bottom" id="footer">
+<nav class="navbar navbar-inverse navbar-fixed-bottom navFondo" id="footer">
 	<div class="container-fluid">
 		<a class="navbar-brand">Panificados del Sur © 2017</a>
 		<ul class="nav navbar-nav navbar-right">

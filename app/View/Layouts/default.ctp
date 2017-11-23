@@ -23,7 +23,7 @@
 	</title>
 	<?php
 		echo $this->Html->meta('icon');
-		echo $this->Html->css(array('bootstrap','font-awesome.min','estilos','jquery-ui.min',"styles","footers"));
+		echo $this->Html->css(array('bootstrap','font-awesome.min','estilos','jquery-ui.min',"styles","footers","inicioFondo"));
 		echo $this->Html->script(array('jquery-2.2.4','bootstrap','jquery-ui.min'));
 
 

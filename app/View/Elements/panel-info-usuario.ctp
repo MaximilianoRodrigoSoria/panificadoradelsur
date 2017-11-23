@@ -1,5 +1,5 @@
 <div class="container">
-<div class="panel panel-default">
+<div class="panel panel-default fondoPanel">
   <div class="info">
   <div class="panel-body">
 

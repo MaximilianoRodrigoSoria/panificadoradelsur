@@ -4,9 +4,10 @@
 
 <div id="header">
        
-			<nav class="navbar navbar-inverse navbar-fixed-top" class="img-responsive">
+			<nav class="navbar navbar-inverse navbar-fixed-top navFondo" class="img-responsive">
  			<div class="container-fluid">
     	<div class="navbar-header">
+          
           <a class="navbar-brand" href="#">Panificados del Sur</a>
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
           <span class="sr-only">Toggle navigation</span>

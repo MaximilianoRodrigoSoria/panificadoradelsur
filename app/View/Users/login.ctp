@@ -1,14 +1,18 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="container">
     <div class="jumbotron">
-      <div class="container">
-        <h1>Bienvenido...</h1>
-        <p>Esta es la aplicacion oficial de la panificadora del sur, No importa que día es, los horarios ya no están
-no hay problemas, no hay bajón
-que no me encuentren jamás
-
-En el Caribe Sur, soñando en el Caribe Sur
-en el Caribe Sur, con vos en el Caribe Su</p>
+      
+        <h2 class="tituloColor"><strong>Bienvenido al Sistema de Panificados del Sur</strong></h2><br>
+        <div class="row">
+          <div class="col-md-7 col-xs-7">
+            <p>Esta es la aplicacion oficial de la Panificadora del Sur. Nuestra empresa se destaca en la produccion de panificados de la mas alta calidad. Nuestros productos son elegidos por mas de miles de personas en toda la Provincia de Buenos Aires y alrededores.</p>
         <p><a class="btn btn-primary btn-lg" href="#" role="button">Leer más &raquo;</a></p>
+          </div>
+          <div class="col-md-5 col-xs-5">
+            <img class="img-responsive img-rounded" src="img/panificados2.jpg" alt="panificados">
+          </div>
+        </div>
+        
       </div>
     </div>
 
@@ -16,18 +20,18 @@ en el Caribe Sur, con vos en el Caribe Su</p>
       <!-- Example row of columns -->
       <div class="row">
         <div class="col-md-4">
-          <h2>Menús para grupos</h2>
-          <p>Disponemos de menús para grupos, elaborados con todo detalle para que cualquier evento que celebre sea un éxito. </p>
+          <h2>Nuestros Panes</h2>
+          <p>Disponemos de la mas alta variedad de panes y derivados para el deleite de nuestros clientes.</p>
           <p><a class="btn btn-default" href="#" role="button">Ver detalles &raquo;</a></p>
         </div>
         <div class="col-md-4">
-          <h2>Nuestras Tentaciones</h2>
-          <p>Pregunte por nuestras sugerencias, todos nuestros platos son excelentes, una auténtica tentación para los sentidos. </p>
+          <h2>Nuestros Dulces</h2>
+          <p>Pregunte por nuestras facturas, tortas y mas productos para deleitar sus dias con nuestros productos dulces. </p>
           <p><a class="btn btn-default" href="#" role="button">Ver detalles &raquo;</a></p>
        </div>
         <div class="col-md-4">
-          <h2>Menú de temporada</h2>
-          <p>Descubra una escogida selección de platos que el chef actualiza cada temporada ajustándose a las estaciones y temporadas de los productos.</p>
+          <h2>¡Contactate con nosotros!</h2>
+          <p>¿No sabes como pedir nuestros deliciosos productos? Contactate con nuestro sector de ventas llamando al numero: 0800-777-PANES(72637)</p>
           <p><a class="btn btn-default" href="#" role="button">Ver detalles &raquo;</a></p>
         </div>
       </div>
